@@ -30,11 +30,11 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    public int Lx=0;
-    public int Ly=0;
+
     TextView a,b;
     Button btn;
     DatabaseReference reff;
+    Point point=new Point();
 
 
 
@@ -56,10 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String X=dataSnapshot.child("longitude").getValue().toString();
-                        String Y=dataSnapshot.child("latidude").getValue().toString();
-                        a.setText(X);
-                        b.setText(Y);
+                        point.x=(double)dataSnapshot.child("longitude").getValue();
+                        point.y=(double)dataSnapshot.child("latidude").getValue();
+
+
+                        a.setText("X= "+point.x);
+                        b.setText("Y= "+point.y);
 
                     }
 
