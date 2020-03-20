@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView a,b;
-    Button btn;
+    //Button btn;
     DatabaseReference reff;
     Point point=new Point();
 
@@ -47,11 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         a=(TextView) findViewById(R.id.textX);
         b=(TextView) findViewById(R.id.textY);
-        btn= (Button) findViewById(R.id.but);
+        //btn= (Button) findViewById(R.id.but);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
                 reff= FirebaseDatabase.getInstance().getReference().child("coordinates").child("0");
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -70,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-            }
-        });
+
+
 
 
 
